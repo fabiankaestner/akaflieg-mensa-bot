@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.181.0/",
+    "cron": "https://deno.land/x/deno_cron@v1.0.0/cron.ts",
+    "telegraf": "npm:telegraf@4.12.2"
+  },
+  "tasks": {
+    "dev": "deno run --allow-env --allow-net --allow-read=.env,.env.defaults,.env.example --no-prompt --watch main.ts"
+  }
+}
