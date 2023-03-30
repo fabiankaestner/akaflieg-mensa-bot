@@ -2,7 +2,7 @@ import { load } from "std/dotenv/mod.ts";
 import { cron } from "cron";
 import { Telegraf } from "telegraf";
 
-const env = await load({
+await load({
   restrictEnvAccessTo: ["TELEGRAM_TOKEN", "GROUP_ID", "CRON_SCHEDULE"],
   export: true,
 });
