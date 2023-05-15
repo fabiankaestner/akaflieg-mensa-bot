@@ -12,8 +12,8 @@ const bot = new Telegraf(Deno.env.get("TELEGRAM_TOKEN") || "");
 bot.command("mensa", async (ctx) => {
   await ctx.sendPoll(
     "Heute Mensa?",
-    ["11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "später"],
-    { is_anonymous: false }
+    ["11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "später", "danach Werke", "danach AKK"],
+    { is_anonymous: false, allows_multiple_answers: true }
   );
   console.log("Sending Mensa Poll to Chat: ", await ctx.getChat());
 });
@@ -28,8 +28,8 @@ if (Deno.env.get("CRON_SCHEDULE") !== undefined) {
       bot.telegram.sendPoll(
         Deno.env.get("GROUP_ID") || "",
         "Heute Mensa?",
-        ["11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "später"],
-        { is_anonymous: false }
+        ["11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "später", "danach Werke", "danach AKK"],
+        { is_anonymous: false, allows_multiple_answers: true }
       );
     }
   });
